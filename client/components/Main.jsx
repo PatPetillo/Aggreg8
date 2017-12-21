@@ -19,6 +19,7 @@ const Main = (props) => {
         {
           <div>
             <NavLink to="/"><button>Home Page</button></NavLink>
+            <NavLink to="/articles"><button>Articles</button></NavLink>
           </div>
         }
       </div>

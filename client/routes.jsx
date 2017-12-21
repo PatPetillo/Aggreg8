@@ -4,8 +4,8 @@ import { Router } from 'react-router';
 import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import history from './history';
-import { Main, Home } from './components';
-import { me } from './store';
+import { Main, Home, Articles } from './components';
+import { fetchArticles } from './store';
 
 /**
  * COMPONENT
@@ -21,6 +21,7 @@ class Routes extends Component {
         <Main>
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route exact path="/articles" component={Articles} />
           </Switch>
         </Main>
       </Router>
@@ -31,11 +32,11 @@ class Routes extends Component {
 /**
  * CONTAINER
  */
-const mapState = state => ({});
+const mapState = state => ({ state });
 
 const mapDispatch = dispatch => ({
   loadInitialData() {
-    dispatch(me());
+    dispatch(fetchArticles());
   },
 });
 
